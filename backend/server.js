@@ -1,5 +1,5 @@
-//require('dotenv').config({ path: __dirname + '/.env' });
-require('dotenv').config();
+require('dotenv').config({ path: __dirname + '/.env' });
+
 console.log("JWT:", process.env.JWT_SECRET);
 const express = require('express');
 const mongoose = require('mongoose');
@@ -28,8 +28,7 @@ app.use('/api/notes', require('./routes/notes'));
 app.get('/api/health', (req, res) => res.json({ status: 'ok', message: 'Lumina API running 💅' }));
 
 // Connect to MongoDB
-const mongoURI = process.env.MONGO_URI
-mongoose.connect("mongoURI")
+mongoose.connect("mongodb://127.0.0.1:27017/lumina")
   .then(() => {
     console.log('✨ MongoDB connected');
     const PORT = process.env.PORT || 5000;
