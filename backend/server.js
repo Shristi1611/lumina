@@ -12,7 +12,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? process.env.FRONTEND_URL : 'http://localhost:3000',
+  origin: ['https://lumina-c90p.onrender.com'],
   credentials: true
 }));
 app.use(express.json());
